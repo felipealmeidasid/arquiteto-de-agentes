@@ -88,6 +88,13 @@ funcionam lá e chegam como texto literal.
 Pergunte o destino quando houver dúvida. Na dúvida sem resposta, gere para Claude Code e
 declare que a versão portável exige uma poda listada.
 
+**Caminho sempre com barra normal, inclusive no Windows.** `references/verificacao.md`,
+`scripts/render.sh`, `.claude/agents/revisor.md`. A barra invertida quebra em dois lugares:
+em markdown ela é caractere de escape e desaparece do texto renderizado, e em comando de
+shell ela escapa o caractere seguinte em vez de separar diretório. Ela também aparece
+sozinha quando alguém copia um caminho do Explorador de Arquivos — converta antes de colar
+no artefato.
+
 ---
 
 ## Fase 0 — Inventário antes de construir
@@ -328,6 +335,34 @@ arquivo existe, está no lugar certo e passou na revisão. Teto de duas devoluç
 agente — na terceira, ele para e chama o usuário, porque o terceiro ciclo quase sempre é
 briefing errado, não execução ruim.
 
+### Calibragem de liberdade
+
+Decida, antes de escrever, **quanto de liberdade cada parte do artefato recebe**. A régua é
+a fragilidade da operação, não a importância dela. O mesmo agente costuma ter partes nos
+dois extremos; calibre uma por uma.
+
+**Dê liberdade** quando existe mais de um caminho válido e variação não estraga o
+resultado. Aqui, explicar o motivo rende mais que mandar: quem entende o porquê decide bem
+no caso que você não previu. Diga o que procurar, não a sequência exata de cliques.
+
+**Seja prescritivo** quando a operação é frágil, a ordem importa ou o resultado precisa sair
+igual toda vez — migração, publicação, qualquer coisa com efeito externo. Aqui o texto vira
+comando literal: "rode exatamente esta linha, não acrescente flag".
+
+Dois erros de calibragem aparecem sempre:
+
+- **Menu em vez de padrão.** Listar quatro bibliotecas equivalentes faz o agente escolher
+  diferente a cada execução. Escolha uma, diga que é o padrão, e cite a alternativa só com
+  a condição que a ativa: "para PDF escaneado, use X".
+- **Resposta em vez de método.** "Junte a tabela A com a B e filtre região igual a EMEA"
+  serve para uma pergunta só. "Leia o schema em `references/`, junte pela convenção `_id`,
+  aplique os filtros do pedido" serve para a classe inteira. Detalhe específico pode entrar
+  — formato de saída, restrição, nome de ferramenta —, mas o caminho tem que generalizar.
+
+Regra prática para revisar o que você escreveu: se o agente errar sem essa frase, ela fica;
+se ele acertaria do mesmo jeito, corte. Instrução que não muda comportamento gasta contexto
+e ainda concorre com a que importa.
+
 ---
 
 ## Fase 5 — Construção
@@ -496,7 +531,12 @@ Fatos que mudam a escrita:
   de um teto combinado de 25.000 — skills antigas caem.
 - Mantenha o `SKILL.md` abaixo de 500 linhas. Documentação extensa, variantes, esquemas e
   exemplos vão para `references/`, citados a partir do `SKILL.md` com quando ler cada um.
-  Evite cadeia de referência com muitos níveis.
+- **Referência fica um nível abaixo do `SKILL.md`**, com caminho relativo à pasta da skill.
+  Cadeia encadeada — um arquivo que manda ler outro que manda ler um terceiro — perde o
+  agente no meio. E cite sempre a condição de leitura: "leia `references/erros-api.md` se a
+  API responder fora do 200" funciona; "veja `references/` para detalhes" não.
+- Referência acima de 300 linhas leva um índice no topo, para o agente saltar direto ao
+  trecho em vez de carregar o arquivo inteiro na cabeça.
 - `scripts/` para o que deve ser reprodutível — entradas e saídas claras, erro útil,
   idempotente, não destrutivo por padrão. Não duplique a lógica do script no corpo.
 - **Padrão para rodar script empacotado sem prompt de permissão:** use
@@ -612,19 +652,25 @@ Método:
 1. Gere cerca de vinte consultas de gatilho: **positivas** com redações bem diferentes,
    **negativas próximas** (o caso vizinho que não deve acionar) e **ambíguas**.
 2. Escreva a descrição respondendo duas coisas: o que faz e quando acionar. Caso principal
-   primeiro, porque o texto é truncado em 1.536 caracteres somando `when_to_use`.
-3. Inclua as frases reais do bloco B da entrevista, no vocabulário do cliente e em
+   primeiro, porque o texto é truncado em 1.536 caracteres somando `when_to_use` no Claude
+   Code — e em 1.024 no modo portável, onde o excesso derruba o empacotamento.
+3. **Terceira pessoa e voz de instrução. Nunca primeira, nunca segunda.** "Revisa código em
+   busca de falhas de segurança. Use proativamente depois de qualquer alteração" está
+   certo. "Eu reviso código" e "revisa o seu código" estão errados — quem lê a descrição é
+   o chamador decidindo delegar, não o usuário. Para skill, a forma que dispara melhor é a
+   instrução direta: "use esta skill quando…", não "esta skill faz…".
+4. Inclua as frases reais do bloco B da entrevista, no vocabulário do cliente e em
    português. "Quando o usuário mandar link de notícia, print ou disser 'vira post'" vale
    mais que "conteúdo para redes sociais".
-4. **Todo exemplo de gatilho precisa mostrar o momento da delegação**, não só a situação:
+5. **Todo exemplo de gatilho precisa mostrar o momento da delegação**, não só a situação:
    contexto → pedido do usuário → o chamador decidindo acionar este agente — nunca um
    exemplo em que o assistente resolve direto sem delegar. Exemplo que não mostra a
    delegação ensina o padrão errado de disparo.
-5. Seja levemente insistente — subdisparo é o modo de falha mais comum. Para agentes, o
+6. Seja levemente insistente — subdisparo é o modo de falha mais comum. Para agentes, o
    padrão da documentação é o tom de "use proativamente quando…".
-6. Delimite pelo negativo quando houver vizinho perigoso: "não use para X; para isso, use
+7. Delimite pelo negativo quando houver vizinho perigoso: "não use para X; para isso, use
    Y".
-7. Confirme que não colide com a descrição de nada instalado (Fase 0).
+8. Confirme que não colide com a descrição de nada instalado (Fase 0).
 
 ---
 
@@ -691,6 +737,12 @@ estão autorizadas.
 
 Casos realistas, não demonstração trivial.
 
+**Os casos nascem antes do artefato, não depois.** Feche a spec da Fase 3 e escreva ali
+mesmo o que vai ser testado, com a redação que o cliente usaria. Caso escrito depois nasce
+contaminado: quem acabou de construir escreve o teste que o que ele construiu passa. Dois
+ou três casos bastam para começar — o conjunto cresce com a primeira rodada, não antes
+dela.
+
 **Disparo:** três pedidos positivos com redações diferentes · dois negativos próximos que
 não devem acionar · um ambíguo que deve gerar pergunta ou rota conservadora · checagem de
 conflito com o que já está instalado.
@@ -705,7 +757,9 @@ Nível C sem confirmação.
 permitidas? preservou arquivos e configurações não relacionados? a saída informa evidência,
 mudanças, falhas e próximo passo?
 
-Para skill com saída objetivamente avaliável, gere `evals/evals.json`:
+Para skill com saída objetivamente avaliável, gere `evals/evals.json` dentro da pasta da
+skill. `prompt` é o pedido como a pessoa digitaria; `expected_output` descreve o sucesso em
+português corrido; `files` lista as entradas, caminho relativo à pasta da skill.
 
 ```json
 {
@@ -713,16 +767,31 @@ Para skill com saída objetivamente avaliável, gere `evals/evals.json`:
   "evals": [
     {
       "id": 1,
-      "prompt": "pedido real do usuario",
-      "expected_output": "resultado esperado",
-      "files": []
+      "prompt": "pedido real do usuario, na redacao dele",
+      "expected_output": "descricao do que e um resultado bom",
+      "files": ["evals/files/entrada.csv"],
+      "assertions": [
+        "afirmacao verificavel sobre a saida",
+        "outra afirmacao verificavel"
+      ]
     }
   ]
 }
 ```
 
-Quando houver como, rode os casos com e sem a skill no mesmo ciclo e compare. Não ajuste a
-skill para decorar os exemplos: falha recorrente vira regra geral, referência ou script.
+**`assertions` entra depois da primeira rodada, não antes.** Antes de ver a saída real você
+não sabe o que checar, e afirmação inventada no vácuo sai frágil demais ou vaga demais. Boa
+afirmação é observável e contável: "o arquivo de saída é JSON válido", "o gráfico tem os
+dois eixos rotulados", "o relatório traz pelo menos três recomendações". Ruim é "a saída
+está boa" — não dá para julgar — e "usa exatamente a frase 'Total: R$ X'" — quebra com
+qualquer redação diferente que também estaria certa. Nem tudo merece afirmação: estilo de
+escrita e acabamento visual se avaliam olhando, não em passa/não passa.
+
+Quando houver como, rode os casos com e sem a skill no mesmo ciclo e compare. O que
+interessa é a diferença: afirmação que passa nos dois lados não prova nada sobre a skill e
+deve sair do conjunto; afirmação que só passa com ela mostra onde o valor está, e vale
+entender por quê. Não ajuste a skill para decorar os exemplos: falha recorrente vira regra
+geral, referência ou script.
 
 ### Gate de conclusão
 

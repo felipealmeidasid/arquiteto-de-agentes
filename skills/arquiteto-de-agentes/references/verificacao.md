@@ -8,6 +8,12 @@
 
 Casos realistas, não demonstração trivial.
 
+**Os casos nascem antes do artefato, não depois.** Feche a spec da Fase 3 e escreva ali
+mesmo o que vai ser testado, com a redação que o cliente usaria. Caso escrito depois nasce
+contaminado: quem acabou de construir escreve o teste que o que ele construiu passa. Dois
+ou três casos bastam para começar — o conjunto cresce com a primeira rodada, não antes
+dela.
+
 **Disparo:** três pedidos positivos com redações diferentes · dois negativos próximos que
 não devem acionar · um ambíguo que deve gerar pergunta ou rota conservadora · checagem de
 conflito com o que já está instalado.
@@ -22,7 +28,9 @@ Nível C sem confirmação.
 permitidas? preservou arquivos e configurações não relacionados? a saída informa evidência,
 mudanças, falhas e próximo passo?
 
-Para skill com saída objetivamente avaliável, gere `evals/evals.json`:
+Para skill com saída objetivamente avaliável, gere `evals/evals.json` dentro da pasta da
+skill. `prompt` é o pedido como a pessoa digitaria; `expected_output` descreve o sucesso em
+português corrido; `files` lista as entradas, caminho relativo à pasta da skill.
 
 ```json
 {
@@ -30,16 +38,31 @@ Para skill com saída objetivamente avaliável, gere `evals/evals.json`:
   "evals": [
     {
       "id": 1,
-      "prompt": "pedido real do usuario",
-      "expected_output": "resultado esperado",
-      "files": []
+      "prompt": "pedido real do usuario, na redacao dele",
+      "expected_output": "descricao do que e um resultado bom",
+      "files": ["evals/files/entrada.csv"],
+      "assertions": [
+        "afirmacao verificavel sobre a saida",
+        "outra afirmacao verificavel"
+      ]
     }
   ]
 }
 ```
 
-Quando houver como, rode os casos com e sem a skill no mesmo ciclo e compare. Não ajuste a
-skill para decorar os exemplos: falha recorrente vira regra geral, referência ou script.
+**`assertions` entra depois da primeira rodada, não antes.** Antes de ver a saída real você
+não sabe o que checar, e afirmação inventada no vácuo sai frágil demais ou vaga demais. Boa
+afirmação é observável e contável: "o arquivo de saída é JSON válido", "o gráfico tem os
+dois eixos rotulados", "o relatório traz pelo menos três recomendações". Ruim é "a saída
+está boa" — não dá para julgar — e "usa exatamente a frase 'Total: R$ X'" — quebra com
+qualquer redação diferente que também estaria certa. Nem tudo merece afirmação: estilo de
+escrita e acabamento visual se avaliam olhando, não em passa/não passa.
+
+Quando houver como, rode os casos com e sem a skill no mesmo ciclo e compare. O que
+interessa é a diferença: afirmação que passa nos dois lados não prova nada sobre a skill e
+deve sair do conjunto; afirmação que só passa com ela mostra onde o valor está, e vale
+entender por quê. Não ajuste a skill para decorar os exemplos: falha recorrente vira regra
+geral, referência ou script.
 
 ### Gate de conclusão
 

@@ -15,19 +15,25 @@ Método:
 1. Gere cerca de vinte consultas de gatilho: **positivas** com redações bem diferentes,
    **negativas próximas** (o caso vizinho que não deve acionar) e **ambíguas**.
 2. Escreva a descrição respondendo duas coisas: o que faz e quando acionar. Caso principal
-   primeiro, porque o texto é truncado em 1.536 caracteres somando `when_to_use`.
-3. Inclua as frases reais do bloco B da entrevista, no vocabulário do cliente e em
+   primeiro, porque o texto é truncado em 1.536 caracteres somando `when_to_use` no Claude
+   Code — e em 1.024 no modo portável, onde o excesso derruba o empacotamento.
+3. **Terceira pessoa e voz de instrução. Nunca primeira, nunca segunda.** "Revisa código em
+   busca de falhas de segurança. Use proativamente depois de qualquer alteração" está
+   certo. "Eu reviso código" e "revisa o seu código" estão errados — quem lê a descrição é
+   o chamador decidindo delegar, não o usuário. Para skill, a forma que dispara melhor é a
+   instrução direta: "use esta skill quando…", não "esta skill faz…".
+4. Inclua as frases reais do bloco B da entrevista, no vocabulário do cliente e em
    português. "Quando o usuário mandar link de notícia, print ou disser 'vira post'" vale
    mais que "conteúdo para redes sociais".
-4. **Todo exemplo de gatilho precisa mostrar o momento da delegação**, não só a situação:
+5. **Todo exemplo de gatilho precisa mostrar o momento da delegação**, não só a situação:
    contexto → pedido do usuário → o chamador decidindo acionar este agente — nunca um
    exemplo em que o assistente resolve direto sem delegar. Exemplo que não mostra a
    delegação ensina o padrão errado de disparo.
-5. Seja levemente insistente — subdisparo é o modo de falha mais comum. Para agentes, o
+6. Seja levemente insistente — subdisparo é o modo de falha mais comum. Para agentes, o
    padrão da documentação é o tom de "use proativamente quando…".
-6. Delimite pelo negativo quando houver vizinho perigoso: "não use para X; para isso, use
+7. Delimite pelo negativo quando houver vizinho perigoso: "não use para X; para isso, use
    Y".
-7. Confirme que não colide com a descrição de nada instalado (Fase 0).
+8. Confirme que não colide com a descrição de nada instalado (Fase 0).
 
 ---
 

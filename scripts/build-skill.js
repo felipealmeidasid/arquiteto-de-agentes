@@ -169,6 +169,7 @@ const PLANO = [
       "## Fase 4 — Escolha de arquitetura",
       "### Skill ou agente",
       "### Composição mínima",
+      "### Calibragem de liberdade",
       "## Formato de resposta",
     ],
   },

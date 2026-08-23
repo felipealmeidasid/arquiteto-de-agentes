@@ -130,6 +130,13 @@ funcionam lá e chegam como texto literal.
 Pergunte o destino quando houver dúvida. Na dúvida sem resposta, gere para Claude Code e
 declare que a versão portável exige uma poda listada.
 
+**Caminho sempre com barra normal, inclusive no Windows.** `references/verificacao.md`,
+`scripts/render.sh`, `.claude/agents/revisor.md`. A barra invertida quebra em dois lugares:
+em markdown ela é caractere de escape e desaparece do texto renderizado, e em comando de
+shell ela escapa o caractere seguinte em vez de separar diretório. Ela também aparece
+sozinha quando alguém copia um caminho do Explorador de Arquivos — converta antes de colar
+no artefato.
+
 ---
 
 ## Fase 0 — Inventário antes de construir
@@ -369,6 +376,34 @@ manda toda entrega ao revisor antes de mostrar ao usuário, e só marca `[x]` co
 arquivo existe, está no lugar certo e passou na revisão. Teto de duas devoluções ao mesmo
 agente — na terceira, ele para e chama o usuário, porque o terceiro ciclo quase sempre é
 briefing errado, não execução ruim.
+
+### Calibragem de liberdade
+
+Decida, antes de escrever, **quanto de liberdade cada parte do artefato recebe**. A régua é
+a fragilidade da operação, não a importância dela. O mesmo agente costuma ter partes nos
+dois extremos; calibre uma por uma.
+
+**Dê liberdade** quando existe mais de um caminho válido e variação não estraga o
+resultado. Aqui, explicar o motivo rende mais que mandar: quem entende o porquê decide bem
+no caso que você não previu. Diga o que procurar, não a sequência exata de cliques.
+
+**Seja prescritivo** quando a operação é frágil, a ordem importa ou o resultado precisa sair
+igual toda vez — migração, publicação, qualquer coisa com efeito externo. Aqui o texto vira
+comando literal: "rode exatamente esta linha, não acrescente flag".
+
+Dois erros de calibragem aparecem sempre:
+
+- **Menu em vez de padrão.** Listar quatro bibliotecas equivalentes faz o agente escolher
+  diferente a cada execução. Escolha uma, diga que é o padrão, e cite a alternativa só com
+  a condição que a ativa: "para PDF escaneado, use X".
+- **Resposta em vez de método.** "Junte a tabela A com a B e filtre região igual a EMEA"
+  serve para uma pergunta só. "Leia o schema em `references/`, junte pela convenção `_id`,
+  aplique os filtros do pedido" serve para a classe inteira. Detalhe específico pode entrar
+  — formato de saída, restrição, nome de ferramenta —, mas o caminho tem que generalizar.
+
+Regra prática para revisar o que você escreveu: se o agente errar sem essa frase, ela fica;
+se ele acertaria do mesmo jeito, corte. Instrução que não muda comportamento gasta contexto
+e ainda concorre com a que importa.
 
 ---
 

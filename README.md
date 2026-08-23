@@ -78,7 +78,9 @@ As seções, na ordem em que a skill as consulta:
   fazer mas não sabe descrever.
 - **Fase 3 — Spec** — curta, aprovada antes de escrever qualquer arquivo.
 - **Fase 4 — Escolha de arquitetura** — quando é `CLAUDE.md`, regra, skill, agente,
-  script, hook, MCP ou plugin — e quando nenhum deles é a resposta certa.
+  script, hook, MCP ou plugin — e quando nenhum deles é a resposta certa. Inclui a
+  **calibragem de liberdade**: quanto de margem cada parte do artefato recebe, medida pela
+  fragilidade da operação.
 - **Fase 5 — Construção** — frontmatter completo de agentes e skills, exemplo âncora
   obrigatório, contrato de handoff, revisor independente.
 - **Redação do `description`** — o campo de maior alavancagem do sistema: gatilhos
@@ -86,7 +88,8 @@ As seções, na ordem em que a skill as consulta:
 - **Autonomia e risco** — quatro níveis (leitura · escrita reversível · efeito externo ·
   proibido) e como cada um vira mecanismo, não só texto.
 - **MCP e ferramentas externas** — antes de conectar qualquer serviço.
-- **Verificação e avaliação** — matriz requisito × evidência; nenhum "está pronto" sem prova.
+- **Verificação e avaliação** — casos escritos antes de construir, `evals/evals.json`,
+  matriz requisito × evidência; nenhum "está pronto" sem prova.
 - **Anti-padrões** — os erros mais caros e por que quebram.
 - **Formato de resposta** — como a entrega chega para quem pediu.
 - **Entrega para cliente** — quando a automação vai para a máquina de outra pessoa.

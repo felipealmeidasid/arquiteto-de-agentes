@@ -41,7 +41,12 @@ Fatos que mudam a escrita:
   de um teto combinado de 25.000 — skills antigas caem.
 - Mantenha o `SKILL.md` abaixo de 500 linhas. Documentação extensa, variantes, esquemas e
   exemplos vão para `references/`, citados a partir do `SKILL.md` com quando ler cada um.
-  Evite cadeia de referência com muitos níveis.
+- **Referência fica um nível abaixo do `SKILL.md`**, com caminho relativo à pasta da skill.
+  Cadeia encadeada — um arquivo que manda ler outro que manda ler um terceiro — perde o
+  agente no meio. E cite sempre a condição de leitura: "leia `references/erros-api.md` se a
+  API responder fora do 200" funciona; "veja `references/` para detalhes" não.
+- Referência acima de 300 linhas leva um índice no topo, para o agente saltar direto ao
+  trecho em vez de carregar o arquivo inteiro na cabeça.
 - `scripts/` para o que deve ser reprodutível — entradas e saídas claras, erro útil,
   idempotente, não destrutivo por padrão. Não duplique a lógica do script no corpo.
 - **Padrão para rodar script empacotado sem prompt de permissão:** use

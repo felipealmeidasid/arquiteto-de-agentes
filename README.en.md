@@ -83,7 +83,9 @@ The sections, in the order the skill consults them:
   a **tacit knowledge** module to extract what the expert does but can't describe.
 - **Phase 3 — Spec** — short, approved before any file gets written.
 - **Phase 4 — Architecture choice** — when it's `CLAUDE.md`, a rule, a skill, an agent, a
-  script, a hook, MCP, or a plugin — and when none of those is the right answer.
+  script, a hook, MCP, or a plugin — and when none of those is the right answer. Includes
+  **calibrating freedom**: how much latitude each part of the artifact gets, measured by
+  how fragile the operation is.
 - **Phase 5 — Construction** — full agent and skill frontmatter, a mandatory anchor
   example, a handoff contract, an independent reviewer.
 - **Writing the `description`** — the highest-leverage field in the whole system:
@@ -91,7 +93,8 @@ The sections, in the order the skill consults them:
 - **Autonomy and risk** — four levels (read · reversible write · external effect ·
   forbidden) and how each one becomes a mechanism, not just prose.
 - **MCP and external tools** — before connecting any service.
-- **Verification and evaluation** — requirement × evidence matrix; no "done" without proof.
+- **Verification and evaluation** — test cases written before building, `evals/evals.json`,
+  a requirement × evidence matrix; no "done" without proof.
 - **Anti-patterns** — the most expensive mistakes, and why they break things.
 - **Response format** — how the deliverable reaches whoever asked for it.
 - **Client delivery** — when the automation ships to someone else's machine.
