@@ -49,13 +49,13 @@ Both come from the same source text. The skill is generated automatically from t
 **Option 1 — Claude Code skill (recommended)**
 
 ```bash
-git clone https://github.com/felipealmeidasid/aquiteto-de-agentes.git
+git clone https://github.com/felipealmeidasid/arquiteto-de-agentes.git
 
 # personal, available in every project
-cp -r aquiteto-de-agentes/skills/arquiteto-de-agentes ~/.claude/skills/
+cp -r arquiteto-de-agentes/skills/arquiteto-de-agentes ~/.claude/skills/
 
 # or just this project
-cp -r aquiteto-de-agentes/skills/arquiteto-de-agentes .claude/skills/
+cp -r arquiteto-de-agentes/skills/arquiteto-de-agentes .claude/skills/
 ```
 
 Open Claude Code and describe the task — the skill triggers automatically from its
@@ -103,7 +103,7 @@ Read the full document in [`system-prompt-arquiteto-de-agentes.md`](system-promp
 ## Repository structure
 
 ```
-aquiteto-de-agentes/
+arquiteto-de-agentes/
 ├── README.md
 ├── README.en.md
 ├── LICENSE

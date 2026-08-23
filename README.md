@@ -43,13 +43,13 @@ edite os arquivos dentro de `skills/` diretamente (veja [Como contribuir](#como-
 **Opção 1 — Skill do Claude Code (recomendado)**
 
 ```bash
-git clone https://github.com/felipealmeidasid/aquiteto-de-agentes.git
+git clone https://github.com/felipealmeidasid/arquiteto-de-agentes.git
 
 # pessoal, disponível em todos os projetos
-cp -r aquiteto-de-agentes/skills/arquiteto-de-agentes ~/.claude/skills/
+cp -r arquiteto-de-agentes/skills/arquiteto-de-agentes ~/.claude/skills/
 
 # ou só neste projeto
-cp -r aquiteto-de-agentes/skills/arquiteto-de-agentes .claude/skills/
+cp -r arquiteto-de-agentes/skills/arquiteto-de-agentes .claude/skills/
 ```
 
 Abra o Claude Code e descreva a tarefa — a skill dispara automaticamente pela
@@ -97,7 +97,7 @@ Leia o documento completo em [`system-prompt-arquiteto-de-agentes.md`](system-pr
 ## Estrutura do repositório
 
 ```
-aquiteto-de-agentes/
+arquiteto-de-agentes/
 ├── README.md
 ├── README.en.md
 ├── LICENSE

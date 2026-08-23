@@ -1,0 +1,12 @@
+# Automacao construida com este metodo. Este repositorio e distribuido e pode
+# ser republicado: nada commitado aqui deve conter trabalho real ou dado de
+# cliente, e o que entra no historico continua la depois de removido.
+trabalho/
+
+# Lista de tarefas que a doutrina manda o orquestrador manter durante uma
+# execucao. E estado de trabalho, nao produto.
+tasks/
+
+# Config local do Claude Code, nunca versionada.
+.claude/settings.local.json
+CLAUDE.local.md
