@@ -30,13 +30,12 @@ Este repositório resolve a segunda pergunta.
 
 ## O que você recebe
 
-| Componente | O que é |
-| --- | --- |
-| [`skills/arquiteto-de-agentes/`](skills/arquiteto-de-agentes) | Skill pronta para o Claude Code — instale e use com `/arquiteto-de-agentes` |
+| Componente                                                                       | O que é                                                                                                        |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| [`skills/arquiteto-de-agentes/`](skills/arquiteto-de-agentes)                    | Skill pronta para o Claude Code — instale e use com `/arquiteto-de-agentes`                                    |
 | [`system-prompt-arquiteto-de-agentes.md`](system-prompt-arquiteto-de-agentes.md) | O mesmo conteúdo, em versão colável — para quem usa claude.ai, Cowork ou outra ferramenta sem suporte a skills |
-| [`system-prompt-arquiteto-de-agentes.pdf`](system-prompt-arquiteto-de-agentes.pdf) | Versão para leitura e compartilhamento offline |
 
-Os três vêm do mesmo texto. A skill é gerada automaticamente a partir do `.md` — nunca
+Os dois vêm do mesmo texto. A skill é gerada automaticamente a partir do `.md` — nunca
 edite os arquivos dentro de `skills/` diretamente (veja [Como contribuir](#como-contribuir)).
 
 ## Instalação
@@ -102,7 +101,6 @@ aquiteto-de-agentes/
 ├── README.en.md
 ├── LICENSE
 ├── system-prompt-arquiteto-de-agentes.md   ← fonte única de verdade
-├── system-prompt-arquiteto-de-agentes.pdf
 ├── scripts/
 │   └── build-skill.js                      ← gera skills/ a partir do .md
 └── skills/

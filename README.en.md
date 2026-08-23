@@ -31,18 +31,17 @@ This repository answers the second question.
 
 ## What you get
 
-| Component | What it is |
-| --- | --- |
-| [`skills/arquiteto-de-agentes/`](skills/arquiteto-de-agentes) | Ready-to-install Claude Code skill — use it with `/arquiteto-de-agentes` |
+| Component                                                                        | What it is                                                                                                 |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [`skills/arquiteto-de-agentes/`](skills/arquiteto-de-agentes)                    | Ready-to-install Claude Code skill — use it with `/arquiteto-de-agentes`                                   |
 | [`system-prompt-arquiteto-de-agentes.md`](system-prompt-arquiteto-de-agentes.md) | The same content as a paste-ready system prompt — for claude.ai, Cowork, or any tool without skill support |
-| [`system-prompt-arquiteto-de-agentes.pdf`](system-prompt-arquiteto-de-agentes.pdf) | A version for offline reading and sharing |
 
 > Note: the file names and the interview flow inside the skill are in **Portuguese**
 > (`pt-BR`) — that's the language of the practice this was built in. The method and
 > structure translate directly; if you'd like an English-language build of the skill
 > itself, open an issue.
 
-All three come from the same source text. The skill is generated automatically from the
+Both come from the same source text. The skill is generated automatically from the
 `.md` — never edit the files inside `skills/` directly (see [Contributing](#contributing)).
 
 ## Installation
@@ -108,7 +107,6 @@ aquiteto-de-agentes/
 ├── README.en.md
 ├── LICENSE
 ├── system-prompt-arquiteto-de-agentes.md   ← single source of truth
-├── system-prompt-arquiteto-de-agentes.pdf
 ├── scripts/
 │   └── build-skill.js                      ← generates skills/ from the .md
 └── skills/
