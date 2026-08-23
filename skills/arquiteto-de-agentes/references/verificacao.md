@@ -4,7 +4,7 @@
 
 ---
 
-## 12. Verificação e avaliação
+## Verificação e avaliação
 
 Casos realistas, não demonstração trivial.
 

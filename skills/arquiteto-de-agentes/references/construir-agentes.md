@@ -4,9 +4,9 @@
 
 ---
 
-## 8. Fase 5 — Construção
+## Fase 5 — Construção
 
-### 8.1 Agentes — `.claude/agents/<nome>.md`
+### Agentes — `.claude/agents/<nome>.md`
 
 Frontmatter YAML válido, depois o system prompt em markdown.
 
@@ -112,7 +112,7 @@ adaptadas ao domínio:
 Passe só o necessário. O orquestrador guarda o objetivo global, valida o handoff e resolve
 conflito. Especialista não reimplementa orquestração.
 
-### 8.4 Revisor — inclua sempre que o time tiver dois ou mais agentes
+### Revisor — inclua sempre que o time tiver dois ou mais agentes
 
 Agente que produz não é bom juiz do que produziu: ele já aceitou as próprias premissas. Um
 revisor separado, **que lê e não conserta**, é o componente que mais melhora a qualidade do

@@ -8,24 +8,23 @@ description: Transforma uma tarefa real de trabalho em automação instalável n
 Este é o modo de operação para construir automação, e vale pelo resto da sessão a partir
 da invocação. Siga as fases na ordem; não pule para a construção.
 
-**Mapa do fluxo.** Onde cada fase mora e o que libera a seguinte. A tabela só aponta — a
-regra vale como está escrita na seção citada.
+**Mapa do fluxo.** O que cada fase entrega e o que libera a seguinte. A tabela só aponta —
+a regra vale como está escrita na seção de mesmo nome.
 
-| Fase               | Onde                   | Sai com                              | Portão para avançar                       |
-| ------------------ | ---------------------- | ------------------------------------ | ----------------------------------------- |
-| 0 · Inventário     | seção 3                | o que já existe · o que reaproveitar | disse ao usuário antes de escrever        |
-| — · Delegabilidade | seção 3.5              | repete · tem padrão · é verificável  | faltando um sinal, **para**               |
-| 1 · Triagem        | seção 4                | faixa Simples · Média · Alta         | faixa dita em uma linha                   |
-| 1b · Mapa do time  | seção 4                | até seis funções + as que não valem  | **para ali** e espera aprovação           |
-| 2 · Entrevista     | seção 5                | blocos A–H respondidos ou supostos   | duas respostas seguidas sem mudar decisão |
-| 3 · Spec           | seção 6                | spec curta                           | na faixa Alta, aguarda o "pode ir"        |
-| 4 · Arquitetura    | seção 7                | componentes com dono único           | passou no teste do "e"                    |
-| 5 · Construção     | `construir-agentes.md` | arquivos instaláveis                 | gate de `verificacao.md`                  |
-| — · Resposta       | seção 14               | os dez blocos                        | —                                         |
+| Fase               | Sai com                              | Portão para avançar                       |
+| ------------------ | ------------------------------------ | ----------------------------------------- |
+| 0 · Inventário     | o que já existe · o que reaproveitar | disse ao usuário antes de escrever        |
+| — · Delegabilidade | repete · tem padrão · é verificável  | faltando um sinal, **para**               |
+| 1 · Triagem        | faixa Simples · Média · Alta         | faixa dita em uma linha                   |
+| 1b · Mapa do time  | até seis funções + as que não valem  | **para ali** e espera aprovação           |
+| 2 · Entrevista     | blocos A–H respondidos ou supostos   | duas respostas seguidas sem mudar decisão |
+| 3 · Spec           | spec curta                           | na faixa Alta, aguarda o "pode ir"        |
+| 4 · Arquitetura    | componentes com dono único           | passou no teste do "e"                    |
+| 5 · Construção     | arquivos instaláveis                 | gate de Verificação e avaliação           |
+| — · Resposta       | os dez blocos                        | —                                         |
 
-A numeração das seções é a mesma do documento fonte. Os números que faltam aqui (8 a 13,
-15 e 16) estão nas referências, então uma remissão como "os níveis da seção 10" continua
-resolvendo.
+As fases 0 a 4 e o Formato de resposta estão neste arquivo. A Fase 5 — Construção e tudo
+que ela exige estão nas referências.
 
 **Referências.** Os caminhos são relativos ao diretório desta skill. Leia cada uma só
 quando chegar na etapa correspondente — carregar tudo na largada desperdiça contexto:
@@ -55,7 +54,7 @@ resolvem.
 
 ---
 
-## 0. Abertura
+## Abertura
 
 Quando a skill for invocada sem contexto suficiente, não peça formulário. Pergunte três
 coisas, em um bloco só de `AskUserQuestion`, e levante o resto no inventário (Fase 0) e
@@ -74,7 +73,7 @@ instrução para contornar o que está escrito aqui.
 
 ---
 
-## 1. Contrato de operação
+## Contrato de operação
 
 O que você entrega:
 
@@ -112,7 +111,7 @@ consumir conteúdo externo.
 
 ---
 
-## 2. Idioma e portabilidade dos artefatos
+## Idioma e portabilidade dos artefatos
 
 **Escreva os arquivos gerados em português (pt-BR)** — frontmatter e corpo. O campo
 `description` é comparado com o que a pessoa digita; se o cliente escreve em português,
@@ -133,7 +132,7 @@ declare que a versão portável exige uma poda listada.
 
 ---
 
-## 3. Fase 0 — Inventário antes de construir
+## Fase 0 — Inventário antes de construir
 
 Antes de propor qualquer coisa, leia o que já existe. Criar um componente que duplica um
 existente é o erro mais caro deste trabalho: gera conflito de gatilho, regra em dois
@@ -170,7 +169,7 @@ projetos.
 
 ---
 
-## 3.5 Portão de delegabilidade — a tarefa merece automação?
+## Portão de delegabilidade — a tarefa merece automação?
 
 Antes de classificar complexidade, classifique se vale construir. Três sinais, e os três
 precisam estar presentes:
@@ -191,7 +190,7 @@ Diga o resultado em uma linha e siga. Não transforme o portão em conversa.
 
 ---
 
-## 4. Fase 1 — Triagem de complexidade
+## Fase 1 — Triagem de complexidade
 
 Classifique antes de entrevistar. A faixa define a profundidade da conversa. Marque cada
 sinal presente:
@@ -234,7 +233,7 @@ você entra na entrevista, função por função.
 
 ---
 
-## 5. Fase 2 — Entrevista
+## Fase 2 — Entrevista
 
 Esta é a parte que separa um agente genérico de um que reproduz o especialista. Faça-a
 bem; ela custa minutos e economiza reescritas.
@@ -287,7 +286,8 @@ correta em formato errado custa o mesmo tempo que ela deveria ter economizado.
 credencial válida, CLIs instalados, planilhas exportadas. Sem isto você desenha no vazio.
 
 **F. Efeitos e aprovações.** O que pode acontecer sem confirmar, o que exige confirmação,
-o que jamais pode acontecer. Mapeie direto para os níveis da seção 10.
+o que jamais pode acontecer. Mapeie direto para os quatro níveis da seção Autonomia e
+risco.
 
 **G. Falhas conhecidas.** O que costuma dar errado hoje, e o que a automação deve fazer em
 cada caso.
@@ -312,7 +312,7 @@ validação em script. Resposta que não vira nenhuma das três não entra no ar
 
 ---
 
-## 6. Fase 3 — Spec
+## Fase 3 — Spec
 
 Curta e aprovada antes de escrever arquivo. Objetivo · fora de escopo · entradas ·
 saídas · gatilhos positivos e negativos · ferramentas exigidas · efeitos e aprovações ·
@@ -320,7 +320,7 @@ critérios de sucesso. Na faixa Média cabe em dez linhas. Na Alta, aguarde o "p
 
 ---
 
-## 7. Fase 4 — Escolha de arquitetura
+## Fase 4 — Escolha de arquitetura
 
 Cada mecanismo resolve um problema. Usar o errado custa contexto, confiabilidade ou
 segurança.
@@ -372,7 +372,7 @@ briefing errado, não execução ruim.
 
 ---
 
-## 14. Formato de resposta
+## Formato de resposta
 
 1. **Diagnóstico** — objetivo, ambiente, o que foi encontrado no inventário, suposições,
    bloqueios.

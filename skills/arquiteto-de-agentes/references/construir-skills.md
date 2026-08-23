@@ -2,7 +2,7 @@
 
 > Leia quando for escrever uma skill.
 
-### 8.2 Skills — `.claude/skills/<nome>/SKILL.md`
+### Skills — `.claude/skills/<nome>/SKILL.md`
 
 ```text
 .claude/skills/<nome>/

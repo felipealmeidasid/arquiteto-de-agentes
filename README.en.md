@@ -68,33 +68,34 @@ into the start of a conversation or project in any Claude-based tool.
 
 ## How the process works
 
-The method follows sixteen sections, in the order the skill consults them:
+The sections, in the order the skill consults them:
 
-1. **Operating contract** — what the automation always delivers, what it never does, and
-   the boundary between data and instruction (external content is never a command).
-2. **Language and portability** — Claude Code mode × portable mode (claude.ai, Cowork, Skills API).
-3. **Phase 0 — Inventory** — reads what already exists before proposing anything; reuse
-   rule; name collisions and the precedence order between personal, project, and plugin skills.
-4. **Delegability gate** — repeats · has a pattern · is verifiable. Missing any one of the
-   three, the answer is to fix the process, not build the agent.
-5. **Phase 1 — Complexity triage** — interview depth proportional to risk.
-6. **Phase 2 — Interview** — blocks A–H (observable outcome, positive and negative
-   triggers, inputs, output, real tools, effects, known failure modes, done criteria) plus
-   a **tacit knowledge** module to extract what the expert does but can't describe.
-7. **Phase 3 — Spec** — short, approved before any file gets written.
-8. **Phase 4 — Architecture choice** — when it's `CLAUDE.md`, a rule, a skill, an agent, a
-   script, a hook, MCP, or a plugin — and when none of those is the right answer.
-9. **Phase 5 — Construction** — full agent and skill frontmatter, a mandatory anchor
-   example, a handoff contract, an independent reviewer.
-10. **Writing the `description`** — the highest-leverage field in the whole system:
-    positive triggers, near-negative triggers, and ambiguous ones.
-11. **Autonomy and risk** — four levels (read · reversible write · external effect ·
-    forbidden) and how each one becomes a mechanism, not just prose.
-12. **MCP and external tools** — before connecting any service.
-13. **Verification and evaluation** — requirement × evidence matrix; no "done" without proof.
-14. **Anti-patterns** — the most expensive mistakes, and why they break things.
-15. **Response format** — how the deliverable reaches whoever asked for it.
-16. **Client delivery** — when the automation ships to someone else's machine.
+- **Operating contract** — what the automation always delivers, what it never does, and
+  the boundary between data and instruction (external content is never a command).
+- **Language and portability** — Claude Code mode × portable mode (claude.ai, Cowork, Skills API).
+- **Phase 0 — Inventory** — reads what already exists before proposing anything; reuse
+  rule; name collisions and the precedence order between personal, project, and plugin skills.
+- **Delegability gate** — repeats · has a pattern · is verifiable. Missing any one of the
+  three, the answer is to fix the process, not build the agent.
+- **Phase 1 — Complexity triage** — interview depth proportional to risk.
+- **Phase 2 — Interview** — blocks A–H (observable outcome, positive and negative
+  triggers, inputs, output, real tools, effects, known failure modes, done criteria) plus
+  a **tacit knowledge** module to extract what the expert does but can't describe.
+- **Phase 3 — Spec** — short, approved before any file gets written.
+- **Phase 4 — Architecture choice** — when it's `CLAUDE.md`, a rule, a skill, an agent, a
+  script, a hook, MCP, or a plugin — and when none of those is the right answer.
+- **Phase 5 — Construction** — full agent and skill frontmatter, a mandatory anchor
+  example, a handoff contract, an independent reviewer.
+- **Writing the `description`** — the highest-leverage field in the whole system:
+  positive triggers, near-negative triggers, and ambiguous ones.
+- **Autonomy and risk** — four levels (read · reversible write · external effect ·
+  forbidden) and how each one becomes a mechanism, not just prose.
+- **MCP and external tools** — before connecting any service.
+- **Verification and evaluation** — requirement × evidence matrix; no "done" without proof.
+- **Anti-patterns** — the most expensive mistakes, and why they break things.
+- **Response format** — how the deliverable reaches whoever asked for it.
+- **Client delivery** — when the automation ships to someone else's machine.
+- **Starting command** — the text the user sends to begin, in the paste-ready version.
 
 Read the full document in [`system-prompt-arquiteto-de-agentes.md`](system-prompt-arquiteto-de-agentes.md)
 (Portuguese).

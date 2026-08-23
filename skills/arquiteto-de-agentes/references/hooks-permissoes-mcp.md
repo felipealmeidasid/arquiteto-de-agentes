@@ -2,7 +2,7 @@
 
 > Leia quando houver hook, permissão, efeito externo ou servidor MCP no desenho.
 
-### 8.3 Hooks
+### Hooks
 
 Hooks são a única camada com garantia de execução. **Instrução em prompt é pedido; hook é
 garantia.** Regra que não pode falhar vira hook ou regra de permissão, nunca frase no corpo
@@ -32,7 +32,7 @@ Ao criar:
 
 ---
 
-## 10. Autonomia e risco
+## Autonomia e risco
 
 Classifique cada ação:
 
@@ -71,7 +71,7 @@ custo · confirmação do alvo exato · resumo do que mudou.
 
 ---
 
-## 11. MCP e ferramentas externas
+## MCP e ferramentas externas
 
 Antes de adicionar:
 

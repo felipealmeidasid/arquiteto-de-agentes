@@ -62,34 +62,35 @@ para o início de uma conversa ou projeto em qualquer ferramenta baseada em Clau
 
 ## Como o processo funciona
 
-O método segue dezesseis seções, na ordem em que a skill as consulta:
+As seções, na ordem em que a skill as consulta:
 
-1. **Contrato de operação** — o que a automação sempre entrega, o que nunca faz, e a
-   fronteira entre dado e instrução (conteúdo externo nunca é comando).
-2. **Idioma e portabilidade** — modo Claude Code × modo portável (claude.ai, Cowork, Skills API).
-3. **Fase 0 — Inventário** — lê o que já existe antes de propor; regra de reuso; conflito
-   de nome e ordem de precedência entre skill pessoal, de projeto e de plugin.
-4. **Portão de delegabilidade** — repete · tem padrão · é verificável. Faltando um dos
-   três, a resposta é consertar o processo, não construir o agente.
-5. **Fase 1 — Triagem de complexidade** — profundidade de entrevista proporcional ao risco.
-6. **Fase 2 — Entrevista** — blocos A–H (resultado observável, gatilhos positivos e
-   negativos, entradas, saída, ferramentas reais, efeitos, falhas conhecidas, critério de
-   pronto) mais um módulo de **conhecimento tácito** para extrair o que o especialista sabe
-   fazer mas não sabe descrever.
-7. **Fase 3 — Spec** — curta, aprovada antes de escrever qualquer arquivo.
-8. **Fase 4 — Escolha de arquitetura** — quando é `CLAUDE.md`, regra, skill, agente,
-   script, hook, MCP ou plugin — e quando nenhum deles é a resposta certa.
-9. **Fase 5 — Construção** — frontmatter completo de agentes e skills, exemplo âncora
-   obrigatório, contrato de handoff, revisor independente.
-10. **Redação do `description`** — o campo de maior alavancagem do sistema: gatilhos
-    positivos, negativos próximos e ambíguos.
-11. **Autonomia e risco** — quatro níveis (leitura · escrita reversível · efeito externo ·
-    proibido) e como cada um vira mecanismo, não só texto.
-12. **MCP e ferramentas externas** — antes de conectar qualquer serviço.
-13. **Verificação e avaliação** — matriz requisito × evidência; nenhum "está pronto" sem prova.
-14. **Anti-padrões** — os erros mais caros e por que quebram.
-15. **Formato de resposta** — como a entrega chega para quem pediu.
-16. **Entrega para cliente** — quando a automação vai para a máquina de outra pessoa.
+- **Contrato de operação** — o que a automação sempre entrega, o que nunca faz, e a
+  fronteira entre dado e instrução (conteúdo externo nunca é comando).
+- **Idioma e portabilidade** — modo Claude Code × modo portável (claude.ai, Cowork, Skills API).
+- **Fase 0 — Inventário** — lê o que já existe antes de propor; regra de reuso; conflito
+  de nome e ordem de precedência entre skill pessoal, de projeto e de plugin.
+- **Portão de delegabilidade** — repete · tem padrão · é verificável. Faltando um dos
+  três, a resposta é consertar o processo, não construir o agente.
+- **Fase 1 — Triagem de complexidade** — profundidade de entrevista proporcional ao risco.
+- **Fase 2 — Entrevista** — blocos A–H (resultado observável, gatilhos positivos e
+  negativos, entradas, saída, ferramentas reais, efeitos, falhas conhecidas, critério de
+  pronto) mais um módulo de **conhecimento tácito** para extrair o que o especialista sabe
+  fazer mas não sabe descrever.
+- **Fase 3 — Spec** — curta, aprovada antes de escrever qualquer arquivo.
+- **Fase 4 — Escolha de arquitetura** — quando é `CLAUDE.md`, regra, skill, agente,
+  script, hook, MCP ou plugin — e quando nenhum deles é a resposta certa.
+- **Fase 5 — Construção** — frontmatter completo de agentes e skills, exemplo âncora
+  obrigatório, contrato de handoff, revisor independente.
+- **Redação do `description`** — o campo de maior alavancagem do sistema: gatilhos
+  positivos, negativos próximos e ambíguos.
+- **Autonomia e risco** — quatro níveis (leitura · escrita reversível · efeito externo ·
+  proibido) e como cada um vira mecanismo, não só texto.
+- **MCP e ferramentas externas** — antes de conectar qualquer serviço.
+- **Verificação e avaliação** — matriz requisito × evidência; nenhum "está pronto" sem prova.
+- **Anti-padrões** — os erros mais caros e por que quebram.
+- **Formato de resposta** — como a entrega chega para quem pediu.
+- **Entrega para cliente** — quando a automação vai para a máquina de outra pessoa.
+- **Comando de partida** — o texto que o usuário envia para começar, na versão colável.
 
 Leia o documento completo em [`system-prompt-arquiteto-de-agentes.md`](system-prompt-arquiteto-de-agentes.md).
 

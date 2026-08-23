@@ -81,7 +81,7 @@ function missao(preambulo) {
 
 // ---------------------------------------------------------------- 2. moldura
 // Unico conteudo que nao vem do documento: frontmatter, indice de referencias e
-// a secao de abertura (que substitui o formulario da secao 16 por perguntas).
+// a secao de abertura (que substitui o formulario do Comando de partida por perguntas).
 
 const FRONTMATTER = [
   "---",
@@ -94,24 +94,23 @@ const FRONTMATTER = [
   "Este é o modo de operação para construir automação, e vale pelo resto da sessão a partir",
   "da invocação. Siga as fases na ordem; não pule para a construção.",
   "",
-  "**Mapa do fluxo.** Onde cada fase mora e o que libera a seguinte. A tabela só aponta — a",
-  "regra vale como está escrita na seção citada.",
+  "**Mapa do fluxo.** O que cada fase entrega e o que libera a seguinte. A tabela só aponta —",
+  "a regra vale como está escrita na seção de mesmo nome.",
   "",
-  "| Fase               | Onde                   | Sai com                              | Portão para avançar                       |",
-  "| ------------------ | ---------------------- | ------------------------------------ | ----------------------------------------- |",
-  "| 0 · Inventário     | seção 3                | o que já existe · o que reaproveitar | disse ao usuário antes de escrever        |",
-  "| — · Delegabilidade | seção 3.5              | repete · tem padrão · é verificável  | faltando um sinal, **para**               |",
-  "| 1 · Triagem        | seção 4                | faixa Simples · Média · Alta         | faixa dita em uma linha                   |",
-  "| 1b · Mapa do time  | seção 4                | até seis funções + as que não valem  | **para ali** e espera aprovação           |",
-  "| 2 · Entrevista     | seção 5                | blocos A–H respondidos ou supostos   | duas respostas seguidas sem mudar decisão |",
-  '| 3 · Spec           | seção 6                | spec curta                           | na faixa Alta, aguarda o "pode ir"        |',
-  '| 4 · Arquitetura    | seção 7                | componentes com dono único           | passou no teste do "e"                    |',
-  "| 5 · Construção     | `construir-agentes.md` | arquivos instaláveis                 | gate de `verificacao.md`                  |",
-  "| — · Resposta       | seção 14               | os dez blocos                        | —                                         |",
+  "| Fase               | Sai com                              | Portão para avançar                       |",
+  "| ------------------ | ------------------------------------ | ----------------------------------------- |",
+  "| 0 · Inventário     | o que já existe · o que reaproveitar | disse ao usuário antes de escrever        |",
+  "| — · Delegabilidade | repete · tem padrão · é verificável  | faltando um sinal, **para**               |",
+  "| 1 · Triagem        | faixa Simples · Média · Alta         | faixa dita em uma linha                   |",
+  "| 1b · Mapa do time  | até seis funções + as que não valem  | **para ali** e espera aprovação           |",
+  "| 2 · Entrevista     | blocos A–H respondidos ou supostos   | duas respostas seguidas sem mudar decisão |",
+  '| 3 · Spec           | spec curta                           | na faixa Alta, aguarda o "pode ir"        |',
+  '| 4 · Arquitetura    | componentes com dono único           | passou no teste do "e"                    |',
+  "| 5 · Construção     | arquivos instaláveis                 | gate de Verificação e avaliação           |",
+  "| — · Resposta       | os dez blocos                        | —                                         |",
   "",
-  "A numeração das seções é a mesma do documento fonte. Os números que faltam aqui (8 a 13,",
-  '15 e 16) estão nas referências, então uma remissão como "os níveis da seção 10" continua',
-  "resolvendo.",
+  "As fases 0 a 4 e o Formato de resposta estão neste arquivo. A Fase 5 — Construção e tudo",
+  "que ela exige estão nas referências.",
   "",
   "**Referências.** Os caminhos são relativos ao diretório desta skill. Leia cada uma só",
   "quando chegar na etapa correspondente — carregar tudo na largada desperdiça contexto:",
@@ -128,7 +127,7 @@ const FRONTMATTER = [
 ].join("\n");
 
 const ABERTURA = [
-  "## 0. Abertura",
+  "## Abertura",
   "",
   "Quando a skill for invocada sem contexto suficiente, não peça formulário. Pergunte três",
   "coisas, em um bloco só de `AskUserQuestion`, e levante o resto no inventário (Fase 0) e",
@@ -154,23 +153,23 @@ const PLANO = [
     arquivo: "SKILL.md",
     cabecalho: null,
     secoes: [
-      "## 1. Contrato de operação",
+      "## Contrato de operação",
       "### Fronteira de instrução",
-      "## 2. Idioma e portabilidade dos artefatos",
-      "## 3. Fase 0 — Inventário antes de construir",
-      "## 3.5 Portão de delegabilidade — a tarefa merece automação?",
-      "## 4. Fase 1 — Triagem de complexidade",
+      "## Idioma e portabilidade dos artefatos",
+      "## Fase 0 — Inventário antes de construir",
+      "## Portão de delegabilidade — a tarefa merece automação?",
+      "## Fase 1 — Triagem de complexidade",
       "### Quando o pedido é o time inteiro, não uma automação",
-      "## 5. Fase 2 — Entrevista",
+      "## Fase 2 — Entrevista",
       "### Como perguntar",
       "### Quando parar",
       "### Blocos",
       "### Módulo de conhecimento tácito",
-      "## 6. Fase 3 — Spec",
-      "## 7. Fase 4 — Escolha de arquitetura",
+      "## Fase 3 — Spec",
+      "## Fase 4 — Escolha de arquitetura",
       "### Skill ou agente",
       "### Composição mínima",
-      "## 14. Formato de resposta",
+      "## Formato de resposta",
     ],
   },
   {
@@ -178,44 +177,44 @@ const PLANO = [
     cabecalho:
       "# Construir agentes\n\n> Leia quando for escrever um agente, um revisor ou um contrato de handoff.",
     secoes: [
-      "## 8. Fase 5 — Construção",
-      "### 8.1 Agentes — `.claude/agents/<nome>.md`",
-      "### 8.4 Revisor — inclua sempre que o time tiver dois ou mais agentes",
+      "## Fase 5 — Construção",
+      "### Agentes — `.claude/agents/<nome>.md`",
+      "### Revisor — inclua sempre que o time tiver dois ou mais agentes",
     ],
   },
   {
     arquivo: "references/construir-skills.md",
     cabecalho: "# Construir skills\n\n> Leia quando for escrever uma skill.",
-    secoes: ["### 8.2 Skills — `.claude/skills/<nome>/SKILL.md`"],
+    secoes: ["### Skills — `.claude/skills/<nome>/SKILL.md`"],
   },
   {
     arquivo: "references/hooks-permissoes-mcp.md",
     cabecalho:
       "# Hooks, permissões e MCP\n\n> Leia quando houver hook, permissão, efeito externo ou servidor MCP no desenho.",
     secoes: [
-      "### 8.3 Hooks",
-      "## 10. Autonomia e risco",
+      "### Hooks",
+      "## Autonomia e risco",
       "### Como isso vira mecanismo",
-      "## 11. MCP e ferramentas externas",
+      "## MCP e ferramentas externas",
     ],
   },
   {
     arquivo: "references/descricao-e-anti-padroes.md",
     cabecalho:
       "# Redação do `description` e anti-padrões\n\n> Leia ao redigir o `description` de qualquer agente ou skill, e de novo antes de\n> fechar a arquitetura, para conferir que nenhum anti-padrão entrou.",
-    secoes: ["## 9. Redação do `description`", "## 13. Anti-padrões"],
+    secoes: ["## Redação do `description`", "## Anti-padrões"],
   },
   {
     arquivo: "references/verificacao.md",
     cabecalho:
       "# Verificação e gate de conclusão\n\n> Leia antes de validar e antes de declarar qualquer coisa pronta.",
-    secoes: ["## 12. Verificação e avaliação", "### Gate de conclusão"],
+    secoes: ["## Verificação e avaliação", "### Gate de conclusão"],
   },
   {
     arquivo: "references/entrega-cliente.md",
     cabecalho:
       "# Entrega para cliente e versão colável\n\n> Leia quando a automação for instalada na máquina de outra pessoa, ou quando o\n> destino não for o Claude Code e a pessoa precisar do prompt em formato colável.",
-    secoes: ["## 15. Entrega para cliente", "## 16. Comando de partida"],
+    secoes: ["## Entrega para cliente", "## Comando de partida"],
   },
 ];
 

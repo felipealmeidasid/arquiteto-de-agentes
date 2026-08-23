@@ -5,7 +5,7 @@
 
 ---
 
-## 9. Redação do `description`
+## Redação do `description`
 
 É o campo de maior alavancagem do sistema inteiro. Um agente excelente com descrição
 ruim nunca é chamado.
@@ -31,21 +31,21 @@ Método:
 
 ---
 
-## 13. Anti-padrões
+## Anti-padrões
 
-| Sintoma                                     | Por que quebra                                          | Faça                                     |
-| ------------------------------------------- | ------------------------------------------------------- | ---------------------------------------- |
-| Criar agente porque a tarefa é importante   | Importância não pede isolamento de contexto             | Skill, ou o próprio fluxo principal      |
-| Orquestrador com um especialista só         | Camada sem roteamento, só custo e latência              | Um agente                                |
-| Agente que reescreve o pedido e delega      | Não produz artefato                                     | Corte a camada                           |
-| Skill que só dá um cargo ao modelo          | Sem procedimento nem conhecimento, não muda nada        | Só crie skill com conteúdo reutilizável  |
-| `context: fork` em skill que é diretriz     | Fork sem tarefa acionável volta vazio                   | Rode inline                              |
-| Regra repetida em quatro camadas            | Divergem e ninguém sabe qual vale                       | Dono único + referência                  |
-| `bypassPermissions` por conveniência        | Remove a proteção inteira, inclusive `.git` e `.claude` | Regras `allow` específicas               |
-| Descrição genérica                          | Nunca dispara, ou dispara errado                        | Método da seção 9                        |
-| "Nunca faça X" só no corpo do agente        | É pedido, não garantia                                  | `deny` ou hook `PreToolUse`              |
-| Herdar todas as ferramentas por padrão      | Superfície de risco e de erro maior que o necessário    | Allowlist mínima                         |
-| Memória de agente sem curadoria             | Acumula erro e vira fonte de verdade falsa              | Só com política de revisão               |
-| Agente para o que a pessoa decide de cabeça | Devolve o que ela já sabe, com passo a mais no caminho  | Deixe fora do time e diga por quê        |
-| Agente que produz e revisa a própria saída  | Já aceitou as próprias premissas; não enxerga o erro    | Revisor separado, só leitura (seção 8.4) |
-| Descrever um agente usando "e"              | Duas responsabilidades disfarçadas de uma               | Dois agentes                             |
+| Sintoma                                     | Por que quebra                                          | Faça                                         |
+| ------------------------------------------- | ------------------------------------------------------- | -------------------------------------------- |
+| Criar agente porque a tarefa é importante   | Importância não pede isolamento de contexto             | Skill, ou o próprio fluxo principal          |
+| Orquestrador com um especialista só         | Camada sem roteamento, só custo e latência              | Um agente                                    |
+| Agente que reescreve o pedido e delega      | Não produz artefato                                     | Corte a camada                               |
+| Skill que só dá um cargo ao modelo          | Sem procedimento nem conhecimento, não muda nada        | Só crie skill com conteúdo reutilizável      |
+| `context: fork` em skill que é diretriz     | Fork sem tarefa acionável volta vazio                   | Rode inline                                  |
+| Regra repetida em quatro camadas            | Divergem e ninguém sabe qual vale                       | Dono único + referência                      |
+| `bypassPermissions` por conveniência        | Remove a proteção inteira, inclusive `.git` e `.claude` | Regras `allow` específicas                   |
+| Descrição genérica                          | Nunca dispara, ou dispara errado                        | Método da seção Redação do `description`     |
+| "Nunca faça X" só no corpo do agente        | É pedido, não garantia                                  | `deny` ou hook `PreToolUse`                  |
+| Herdar todas as ferramentas por padrão      | Superfície de risco e de erro maior que o necessário    | Allowlist mínima                             |
+| Memória de agente sem curadoria             | Acumula erro e vira fonte de verdade falsa              | Só com política de revisão                   |
+| Agente para o que a pessoa decide de cabeça | Devolve o que ela já sabe, com passo a mais no caminho  | Deixe fora do time e diga por quê            |
+| Agente que produz e revisa a própria saída  | Já aceitou as próprias premissas; não enxerga o erro    | Revisor separado, só leitura (seção Revisor) |
+| Descrever um agente usando "e"              | Duas responsabilidades disfarçadas de uma               | Dois agentes                                 |
