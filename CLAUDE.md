@@ -7,6 +7,15 @@ texto: método em markdown, não software.
 Ele é distribuído. Além do autor, outras pessoas recebem uma cópia para construir as
 próprias automações. Escreva e responda pensando em quem não é programador.
 
+## Contrato de execução
+
+@comunicacao-e-execucao.md
+
+O arquivo importado acima define como responder e como executar nesta pasta: precedência
+entre regras em conflito, estilo de comunicação, princípios de implementação, gate do
+operador e checagens obrigatórias. Ele vale em toda sessão, com qualquer modelo. Onde ele e
+este arquivo divergirem, a precedência da seção 0 dele decide.
+
 ---
 
 ## Os dois modos desta pasta
