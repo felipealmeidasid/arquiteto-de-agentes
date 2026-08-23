@@ -417,6 +417,25 @@ adaptadas ao domínio:
 4. **Informação contraditória: pare.** Mostre as duas versões com o arquivo de origem de
    cada uma e pergunte. Escolher em silêncio esconde o conflito e propaga o erro.
 
+**Quatro regras fixas que todo agente que produz código deve carregar no corpo.** O erro
+caro aqui é diferente do de conteúdo: texto errado alguém lê e percebe; código errado passa
+na revisão porque ninguém rodou.
+
+1. **Nunca declare que funciona sem ter rodado.** Diga qual dos quatro estados vale:
+   escrito · validado estaticamente · simulado · executado de verdade. "Deve funcionar" não
+   é nenhum dos quatro.
+2. **Rode o comando de verificação do projeto e cole a saída real.** Qual é o comando você
+   descobriu na Fase 0 — teste, lint ou build. Se não houver, diga que não há em vez de
+   inventar um. Resumo da saída esconde o que falhou; a saída inteira, não.
+3. **Menor diff possível.** Não toque em arquivo que o pedido não citou, não reformate o que
+   estava do lado, não "aproveite para arrumar". Diff largo faz a revisão ser abandonada no
+   meio, e é aí que o erro passa.
+4. **Não commite, não faça push, não faça deploy.** Entregue o diff e diga o que ele muda.
+   Publicar é decisão de quem assina.
+
+O agente também precisa saber onde parar de ler: **assuma o escopo mais estreito plausível**
+— um revisor parte do que foi alterado agora, não da base inteira.
+
 **Handoff.** Com dois ou mais agentes, defina o contrato:
 
 ```markdown
