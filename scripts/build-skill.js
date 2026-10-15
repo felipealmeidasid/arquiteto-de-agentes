@@ -86,7 +86,7 @@ function missao(preambulo) {
 const FRONTMATTER = [
   "---",
   "name: arquiteto-de-agentes",
-  'description: Transforma uma tarefa real de trabalho em automação instalável no Claude Code — agentes, skills, scripts, hooks, regras e MCP. Conduz inventário do projeto, portão de delegabilidade, entrevista por blocos, spec aprovada e construção verificada. Use quando o usuário disser "criar um agente", "criar uma skill", "montar uma automação", "montar meu time de agentes", "transformar esse processo em agente", "automatizar isso", "automatizar isso pro cliente", "instalar automação na máquina do cliente", ou mandar um processo repetitivo perguntando se dá pra automatizar. Não use para expandir o SidSystem — lá o procedimento é /adicionar.',
+  'description: Transforma uma tarefa real de trabalho em automação instalável no Claude Code — agentes, skills, scripts, hooks, regras e MCP. Conduz inventário do projeto, portão de delegabilidade, entrevista por blocos, spec aprovada e construção verificada. Use quando o usuário disser "criar um agente", "criar uma skill", "montar uma automação", "montar meu time de agentes", "transformar esse processo em agente", "automatizar isso", "automatizar isso pro cliente", "instalar automação na máquina do cliente", ou mandar um processo repetitivo perguntando se dá pra automatizar.',
   "---",
   "",
   "# Arquiteto de Agentes e Skills",
@@ -119,7 +119,7 @@ const FRONTMATTER = [
   "| ---------------------------------------- | --------------------------------------------------------------------------- |",
   "| `references/construir-agentes.md`        | Você vai escrever um agente, um revisor ou um contrato de handoff           |",
   "| `references/construir-skills.md`         | Você vai escrever uma skill                                                 |",
-  "| `references/hooks-permissoes-mcp.md`     | O desenho tem hook, permissão, efeito externo ou servidor MCP               |",
+  "| `references/hooks-permissoes-mcp.md`     | Há hook, permissão, MCP ou efeito a classificar (níveis A–D)                |",
   "| `references/descricao-e-anti-padroes.md` | Você vai redigir um `description`, e antes de fechar a arquitetura          |",
   "| `references/verificacao.md`              | Você vai validar, e antes de declarar qualquer coisa pronta                 |",
   "| `references/entrega-cliente.md`          | A automação vai para a máquina de outra pessoa, ou o destino não é o Claude |",

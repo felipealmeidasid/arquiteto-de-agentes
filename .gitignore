@@ -6,6 +6,11 @@ trabalho/
 # Lista de tarefas que a doutrina manda o orquestrador manter durante uma
 # execucao. E estado de trabalho, nao produto.
 tasks/
+.tasks/
+
+# Rascunhos e imagens de referencia de projetos reais, e logs de depuracao.
+tmp/
+*.log
 
 # Config local do Claude Code, nunca versionada.
 .claude/settings.local.json

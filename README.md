@@ -104,6 +104,9 @@ arquiteto-de-agentes/
 ├── README.md
 ├── README.en.md
 ├── LICENSE
+├── CLAUDE.md                               ← entrada do Claude Code
+├── AGENTS.md                               ← entrada do Codex
+├── comunicacao-e-execucao.md               ← contrato de comunicação e execução
 ├── system-prompt-arquiteto-de-agentes.md   ← fonte única de verdade
 ├── scripts/
 │   └── build-skill.js                      ← gera skills/ a partir do .md
